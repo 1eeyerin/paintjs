@@ -1,5 +1,6 @@
 const canvas = document.getElementById('jsCanvas');
 const  ctx = canvas.getContext('2d');
+const colors = document.getElementsByClassName('jsColor');
 
 canvas.width = 700;
 canvas.height = 700;
@@ -12,7 +13,6 @@ let painting = false;
 
 function stopPainting(event) {painting = false}
 function startPainting(event) {painting = true}
-function onMouseDown(event) {painting = true}
 
 function onMouseMove(event) {
   const x = event.offsetX;
@@ -27,9 +27,17 @@ function onMouseMove(event) {
   }
 }
 
+function handleColorClick(event) {
+  const color = event.target.style.backgroundColor;
+  ctx.strokeStyle = color;
+}
+
 if(canvas) {
   canvas.addEventListener('mousemove', onMouseMove);
   canvas.addEventListener('mousedown', startPainting);
   canvas.addEventListener('mouseup', stopPainting);
   canvas.addEventListener('mouseleave', stopPainting);
 }
+
+Array.from(colors).forEach(color => color.addEventListener('click', handleColorClick)); //Array.from()객체를 배열로
+//array를 만들고 foreach로 color를 돌려서 handleColorClick을 호출
