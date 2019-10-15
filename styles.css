@@ -5,7 +5,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 50px;
+  padding: 50px 0;
 }
 
 canvas {
@@ -15,7 +15,35 @@ canvas {
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(50, 50, 93, 0.11);
 }
-.controls {margin-top: 80px;}
+.controls {
+  margin-top: 50px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.controls .controls__btns {
+  margin-bottom:30px;
+}
+.controls__btns button {
+  all:unset;
+  background-color:white;
+  cursor: pointer;
+  padding: 5px 20px;
+  width:80px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(50, 50, 93, 0.11);
+  font-size:13px;
+  margin: 0 10px;
+  color: rgba(0, 0, 0, 0.8);
+}
+.controls .controls__range {
+  margin-bottom:30px;
+}
+.controls__btns button:active {
+  transform: scale(0.98);
+}
+
 .controls .controls__colors {display:flex}
 .controls__colors .controls__color {
 width: 50px;
